@@ -116,6 +116,7 @@ const App = () => {
     return (
         <div>
             <h1>LIONIELZ's WoDN Tools</h1>
+            <hr />
             <h2>Enhance Simulation</h2>
             <form className="form-inline">
                 <div className={"mr-2"}>
