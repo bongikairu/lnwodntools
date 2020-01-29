@@ -171,6 +171,8 @@ const App = () => {
             </form>
             <div className={"mt-2"}>
                 <WorkingImage status={enhStatus}/>
+                <img alt={"BS"} src={"images/bs_1.jpg"} width={1}/>
+                <img alt={"BS"} src={"images/bs_1.jpg"} width={2}/>
             </div>
             {enhSimulationOutput.min_stone_used > 0 ? (
                 <div>
