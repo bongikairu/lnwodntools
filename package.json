@@ -1,0 +1,36 @@
+{
+  "name": "lnwodntools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3"
+  },
+  "babel": {
+    "minified": true,
+    "comments": false,
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": "> 0.25%, not dead"
+        }
+      ],
+      "@babel/preset-react"
+    ]
+  },
+  "scripts": {
+    "build": "babel src/script.js --out-file script.min.js",
+    "watch": "babel --watch src/script.js --out-file script.min.js",
+    "build-worker": "babel src/worker.js --out-file worker.min.js",
+    "watch-worker": "babel --watch src/worker.js --out-file worker.min.js"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
