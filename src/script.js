@@ -46,20 +46,7 @@ const enhancePercentageList = enhancePercentage
         stoneUsage: parseInt(x.chance[2]),
         jellyUsage: parseInt(x.chance[3]),
     }));
-const enhancePercentageDict = enhancePercentageList.reduce((acc, cur) => ({...acc, [cur.from]: cur}), {});
-
-// console.log("No Jelly, No Event");
-// console.log(averageSimulateEnhance(0, 10, false, 0, 1, 1000000));
-// console.log("W/ Jelly, No Event");
-// console.log(averageSimulateEnhance(0, 10, true, 0, 1, 1000000));
-// console.log("No Jelly, W/ Event");
-// console.log(averageSimulateEnhance(0, 10, false, 10, 1, 1000000));
-// console.log("W/ Jelly, W/ Event");
-// console.log(averageSimulateEnhance(0, 10, true, 10, 1, 1000000));
-// console.log("No Jelly, W/ Event, Bad Luck");
-// console.log(averageSimulateEnhance(0, 10, false, 10, 0.75, 1000000));
-// console.log("W/ Jelly, W/ Event, Bad Luck");
-// console.log(averageSimulateEnhance(0, 10, true, 10, 0.75, 1000000));
+// const enhancePercentageDict = enhancePercentageList.reduce((acc, cur) => ({...acc, [cur.from]: cur}), {});
 
 const worker = new Worker("worker.min.js");
 
@@ -114,9 +101,9 @@ const App = () => {
 
 
     return (
-        <div>
+        <div className={"mb-2"}>
             <h1>LIONIELZ's WoDN Tools</h1>
-            <hr />
+            <hr/>
             <h2>Enhance Simulation</h2>
             <form className="form-inline">
                 <div className={"mr-2"}>
@@ -127,7 +114,7 @@ const App = () => {
                     to
                 </div>
                 <input type={"number"} min={0} max={50} className={"form-control"} value={enhInputTo} onChange={(e) => setEnhInputTo(e.target.value)}/>
-                <input type={"button"} value={"Simulate"} className={"btn btn-primary ml-2"} onClick={() => {
+                <input type={"button"} value={"Simulate"} className={"btn btn-primary ml-sm-2 mt-2 mt-sm-0"} onClick={() => {
                     const from_num = parseInt(enhInputFrom);
                     const to_num = parseInt(enhInputTo);
                     if (isNaN(from_num) || from_num < 0 || from_num > 50) return alert("Please input valid from");
@@ -176,9 +163,10 @@ const App = () => {
             </div>
             {enhSimulationOutput.min_stone_used > 0 ? (
                 <div>
-                    Average: {enhSimulationOutput.average_stone_used}<br/>
-                    Minimum: {enhSimulationOutput.min_stone_used}<br/>
-                    Maximum: {enhSimulationOutput.max_stone_used}<br/>
+                    <h4>Stone Usage</h4>
+                    Average: {enhSimulationOutput.average_stone_used} ea<br/>
+                    Minimum: {enhSimulationOutput.min_stone_used} ea<br/>
+                    Maximum: {enhSimulationOutput.max_stone_used} ea<br/>
                 </div>
             ) : null}
             <div className={"mt-2"}>
